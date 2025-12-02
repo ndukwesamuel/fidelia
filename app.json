@@ -2,6 +2,11 @@
   "expo": {
     "name": "fidelia",
     "slug": "fidelia",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "1d400507-e7cd-4f69-946f-2676d3a842e3"
+      }
+    }
   }
 }

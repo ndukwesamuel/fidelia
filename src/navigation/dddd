@@ -1,0 +1,225 @@
+// App.tsx - Super App Navigation
+
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+// Auth Screens
+import SplashScreen from "./src/Splashscreen";
+import OnboardingScreen from "./src/Onboardingscreen";
+import LoginScreen from "./src/Loginscreen";
+import RegisterScreen from "./src/Registerscreen";
+import OTPScreen from "./src/Otpscreen";
+
+// Main Tab Screens
+import HomeScreen from "./src/user/Homescreen";
+import SearchScreen from "./src/user/Searchscreen";
+import OrdersScreen from "./src/user/Ordersscreen";
+import WalletScreen from "./src/user/Walletscreen";
+import ProfileScreen from "./src/user/Profilescreen";
+
+// Shared Screens (Universal)
+import CheckoutScreen from "./src/user/Checkoutscreen";
+import PaymentMethodScreen from "./src/user/Paymentmethodscreen";
+import OrderConfirmationScreen from "./src/user/Orderconfirmationscreen";
+import AddressesScreen from "./src/user/Addressesscreen";
+import RateOrderScreen from "./src/user/Rateorderscreen";
+import OrderDetailsScreen from "./src/user/Orderdetailsscreen";
+
+// Food Module Screens
+import CategoryScreen from "./src/user/food/Categoryscreen";
+import StoreDetailsScreen from "./src/user/food/Storedetailsscreen";
+import ProductDetailsScreen from "./src/user/food/Productdetailsscreen";
+import CartScreen from "./src/user/food/Cartscreen";
+import LiveTrackingScreen from "./src/user/food/Livetrackingscreen";
+
+// Grocery Module Screens
+import GroceryCategoriesScreen from "./src/user/grocery/GroceryCategoriesScreen";
+import GroceryStoreScreen from "./src/user/grocery/GroceryStoreScreen";
+import GroceryProductScreen from "./src/user/grocery/GroceryProductScreen";
+import GroceryCartScreen from "./src/user/grocery/GroceryCartScreen";
+import GroceryDeliverySlotScreen from "./src/user/grocery/GroceryDeliverySlotScreen";
+import GroceryTrackingScreen from "./src/user/grocery/GroceryTrackingScreen";
+import ShoppingListScreen from "./src/user/grocery/ShoppingListScreen";
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+// ========================================
+// FOOD STACK NAVIGATOR
+// ========================================
+const FoodStackNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: "#000000" },
+        animation: "slide_from_right",
+      }}
+    >
+      <Stack.Screen name="Category" component={CategoryScreen} />
+      <Stack.Screen name="StoreDetails" component={StoreDetailsScreen} />
+      <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
+      <Stack.Screen name="Cart" component={CartScreen} />
+      <Stack.Screen name="LiveTracking" component={LiveTrackingScreen} />
+    </Stack.Navigator>
+  );
+};
+
+// ========================================
+// GROCERY STACK NAVIGATOR
+// ========================================
+const GroceryStackNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: "#000000" },
+        animation: "slide_from_right",
+      }}
+    >
+      <Stack.Screen name="GroceryCategories" component={GroceryCategoriesScreen} />
+      <Stack.Screen name="GroceryStore" component={GroceryStoreScreen} />
+      <Stack.Screen name="GroceryProduct" component={GroceryProductScreen} />
+      <Stack.Screen name="GroceryCart" component={GroceryCartScreen} />
+      <Stack.Screen name="GroceryDeliverySlot" component={GroceryDeliverySlotScreen} />
+      <Stack.Screen name="GroceryTracking" component={GroceryTrackingScreen} />
+      <Stack.Screen name="ShoppingList" component={ShoppingListScreen} />
+    </Stack.Navigator>
+  );
+};
+
+// ========================================
+// MAIN TABS (Bottom Navigation)
+// ========================================
+const MainTabs = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarStyle: styles.tabBar,
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: "#0066FF",
+        tabBarInactiveTintColor: "#666666",
+        tabBarIcon: ({ focused, color, size }) => {
+          // ... your existing icon logic
+        },
+      })}
+    >
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Orders" component={OrdersScreen} />
+      <Tab.Screen name="Wallet" component={WalletScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
+    </Tab.Navigator>
+  );
+};
+
+// ========================================
+// ROOT NAVIGATOR
+// ========================================
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="MainTabs"
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: "#000000" },
+          animation: "slide_from_right",
+        }}
+      >
+        {/* Auth Stack */}
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="OTP" component={OTPScreen} />
+
+        {/* Main Tabs */}
+        <Stack.Screen name="MainTabs" component={MainTabs} />
+
+        {/* Service Stacks */}
+        <Stack.Screen name="FoodStack" component={FoodStackNavigator} />
+        <Stack.Screen name="GroceryStack" component={GroceryStackNavigator} />
+        
+        {/* Shared Screens (Universal) */}
+        <Stack.Screen name="Checkout" component={CheckoutScreen} />
+        <Stack.Screen name="PaymentMethod" component={PaymentMethodScreen} />
+        <Stack.Screen name="OrderConfirmation" component={OrderConfirmationScreen} />
+        <Stack.Screen name="Addresses" component={AddressesScreen} />
+        <Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />
+        <Stack.Screen name="RateOrder" component={RateOrderScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
+```
+
+---
+
+## 🎯 **How User Navigation Works:**
+
+### **Example: Food Order**
+```
+HomeScreen 
+  → Tap "Food" tile
+  → navigation.navigate('FoodStack', { screen: 'Category' })
+  → Category → StoreDetails → ProductDetails → Cart
+  → navigation.navigate('Checkout') // Shared
+  → navigation.navigate('PaymentMethod') // Shared
+  → navigation.navigate('OrderConfirmation') // Shared
+  → navigation.navigate('FoodStack', { screen: 'LiveTracking' })
+```
+
+### **Example: Grocery Order**
+```
+HomeScreen 
+  → Tap "Grocery" tile
+  → navigation.navigate('GroceryStack', { screen: 'GroceryCategories' })
+  → GroceryCategories → GroceryStore → GroceryProduct → GroceryCart
+  → navigation.navigate('GroceryStack', { screen: 'GroceryDeliverySlot' })
+  → navigation.navigate('Checkout') // Shared
+  → navigation.navigate('PaymentMethod') // Shared
+  → navigation.navigate('OrderConfirmation') // Shared
+  → navigation.navigate('GroceryStack', { screen: 'GroceryTracking' })
+```
+
+---
+
+## 📁 **Updated Folder Structure:**
+```
+src/
+├── user/
+│   ├── Homescreen.tsx
+│   ├── Searchscreen.tsx
+│   ├── Ordersscreen.tsx
+│   ├── Walletscreen.tsx
+│   ├── Profilescreen.tsx
+│   │
+│   ├── /food
+│   │   ├── Categoryscreen.tsx
+│   │   ├── Storedetailsscreen.tsx
+│   │   ├── Productdetailsscreen.tsx
+│   │   ├── Cartscreen.tsx
+│   │   └── Livetrackingscreen.tsx
+│   │
+│   ├── /grocery
+│   │   ├── GroceryCategoriesScreen.tsx
+│   │   ├── GroceryStoreScreen.tsx
+│   │   ├── GroceryProductScreen.tsx
+│   │   ├── GroceryCartScreen.tsx
+│   │   ├── GroceryDeliverySlotScreen.tsx
+│   │   ├── GroceryTrackingScreen.tsx
+│   │   └── ShoppingListScreen.tsx
+│   │
+│   └── /shared (or root)
+│       ├── Checkoutscreen.tsx
+│       ├── Paymentmethodscreen.tsx
+│       ├── Orderconfirmationscreen.tsx
+│       ├── Addressesscreen.tsx
+│       ├── Orderdetailsscreen.tsx
+│       └── Rateorderscreen.tsx

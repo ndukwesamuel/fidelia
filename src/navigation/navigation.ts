@@ -19,6 +19,12 @@ export type RootStackParamList = {
   RateOrder: { orderId: string };
   Addresses: undefined;
   AddAddress: { addressId?: string };
+  GroceryCategories: undefined;
+  GroceryProduct: undefined;
+  GroceryStore: undefined;
+  GroceryCart: undefined;
+  GroceryTracking: undefined;
+  Category: undefined;
 };
 
 export type MainTabParamList = {

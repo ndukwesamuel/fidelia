@@ -30,6 +30,13 @@ import AddressesScreen from "./src/user/Addressesscreen";
 import RateOrderScreen from "./src/user/Rateorderscreen";
 import OrderDetailsScreen from "./src/user/Orderdetailsscreen";
 import LiveTrackingScreen from "./src/user/Livetrackingscreen";
+import GroceryCategoriesScreen from "./src/grocery/Grocerycategoriesscreen";
+import GroceryStoreScreen from "./src/grocery/Grocerystorescreen";
+import GroceryProductScreen from "./src/grocery/Groceryproductscreen";
+import GroceryCartScreen from "./src/grocery/Grocerycartscreen";
+import GroceryTrackingScreen from "./src/grocery/Grocerytrackingscreen";
+import GroceryDeliverySlotScreen from "./src/grocery/Grocerydeliveryslotscreen";
+import ShoppingListScreen from "./src/grocery/Shoppinglistscreen";
 
 // Import all screens
 // import SplashScreen from "./screens/SplashScreen";
@@ -60,6 +67,33 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 // Bottom Tab Navigator
+
+const GroceryStackNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: "#000000" },
+        animation: "slide_from_right",
+      }}
+    >
+      <Stack.Screen
+        name="GroceryCategories"
+        component={GroceryCategoriesScreen}
+      />
+      <Stack.Screen name="GroceryStore" component={GroceryStoreScreen} />
+      <Stack.Screen name="GroceryProduct" component={GroceryProductScreen} />
+      <Stack.Screen name="GroceryCart" component={GroceryCartScreen} />
+      <Stack.Screen
+        name="GroceryDeliverySlot"
+        component={GroceryDeliverySlotScreen}
+      />
+
+      <Stack.Screen name="GroceryTracking" component={GroceryTrackingScreen} />
+      <Stack.Screen name="ShoppingList" component={ShoppingListScreen} />
+    </Stack.Navigator>
+  );
+};
 const MainTabs = () => {
   return (
     <Tab.Navigator
@@ -133,6 +167,7 @@ const App = () => {
 
         {/* Main App */}
         <Stack.Screen name="MainTabs" component={MainTabs} />
+        <Stack.Screen name="GroceryStack" component={GroceryStackNavigator} />
 
         {/* Shopping Flow */}
         <Stack.Screen name="Category" component={CategoryScreen} />

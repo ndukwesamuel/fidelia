@@ -137,11 +137,82 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     },
   ];
 
+  // const handleServicePress = (service: Service) => {
+  //   navigation.navigate("Category", {
+  //     categoryId: service.id,
+  //     categoryName: service.name,
+  //   });
+  // };
+
   const handleServicePress = (service: Service) => {
-    navigation.navigate("Category", {
-      categoryId: service.id,
-      categoryName: service.name,
-    });
+    switch (service.name) {
+      case "FOOD":
+        navigation.navigate("Category", {
+          // screen: "Category",
+          // params: {
+          categoryId: service.id,
+          categoryName: service.name,
+          // },
+        });
+        break;
+
+      case "GROCERY":
+        navigation.navigate("GroceryStack", {
+          screen: "GroceryCategories",
+          params: {
+            categoryId: service.id,
+            categoryName: service.name,
+          },
+        });
+        break;
+
+      case "ERRANDS":
+        navigation.navigate("ErrandsStack", {
+          screen: "ErrandRequest",
+          params: {
+            categoryId: service.id,
+            categoryName: service.name,
+          },
+        });
+        break;
+
+      case "LOGISTICS":
+        navigation.navigate("LogisticsStack", {
+          screen: "LogisticsRequest",
+          params: {
+            categoryId: service.id,
+            categoryName: service.name,
+          },
+        });
+        break;
+
+      case "PHARMACY":
+        navigation.navigate("PharmacyStack", {
+          screen: "PharmacySearch",
+          params: {
+            categoryId: service.id,
+            categoryName: service.name,
+          },
+        });
+        break;
+
+      case "MARKET":
+        navigation.navigate("MarketStack", {
+          screen: "MarketCategories",
+          params: {
+            categoryId: service.id,
+            categoryName: service.name,
+          },
+        });
+        break;
+
+      default:
+        // Fallback to old navigation for backward compatibility
+        navigation.navigate("Category", {
+          categoryId: service.id,
+          categoryName: service.name,
+        });
+    }
   };
 
   return (

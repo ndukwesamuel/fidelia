@@ -1,6 +1,5 @@
 # 🎯 AI PROMPT TEMPLATE FOR SCREEN REDESIGN
-
-**"GLOW COMMERCE" Design System - Copy & Paste This**
+**"FIDELIA" Design System - Copy & Paste This**
 
 ---
 
@@ -15,26 +14,37 @@
 
 ## 🔥 THE COMPLETE PROMPT (COPY FROM HERE)
 
-````
-You are redesigning a React Native screen for "GLOW COMMERCE" - the most modern delivery platform in Nigeria.
+```
+You are redesigning a React Native screen for "FIDELIA" - Nigeria's most trusted delivery platform.
+
+**BRAND IDENTITY:**
+- App Name: Fidelia (meaning: Faithful, Loyal, Trustworthy)
+- Tagline: "Faithful Delivery, Every Time"
+- Vibe: Trust + Speed + Modern + Energy
 
 ## 🎨 DESIGN SYSTEM RULES (FOLLOW EXACTLY)
 
 ### COLOR PALETTE
 
 ```javascript
-// Signature Neon Colors
-NEON_LIME: '#BFFF00',              // Primary - YOUR SIGNATURE
-NEON_LIME_DARK: '#7FFF00',         // Primary dark
-NEON_LIME_GLOW: 'rgba(191, 255, 0, 0.4)',
+// Fidelia Signature Colors (Trust Blue + Energy Orange)
+FIDELIA_BLUE: '#0066FF',           // Primary - Trust & Reliability
+FIDELIA_BLUE_LIGHT: '#3385FF',     // Lighter shade
+FIDELIA_BLUE_DARK: '#0052CC',      // Darker shade
+FIDELIA_BLUE_GLOW: 'rgba(0, 102, 255, 0.4)',
 
-// Service Colors (Bold Neon Gradients)
-FOOD_GRADIENT: ['#FF0080', '#FF4D00'],
-GROCERY_GRADIENT: ['#00FFF0', '#00D4FF'],
-ERRAND_GRADIENT: ['#FF00FF', '#B300FF'],
-LOGISTICS_GRADIENT: ['#FFFF00', '#FFB800'],
-PHARMACY_GRADIENT: ['#00FF88', '#00DDA0'],
-MARKET_GRADIENT: ['#FF3D71', '#C7005C'],
+FIDELIA_ORANGE: '#FF6B00',         // Secondary - Energy & Action
+FIDELIA_ORANGE_LIGHT: '#FF8533',   
+FIDELIA_ORANGE_DARK: '#E55A00',
+FIDELIA_ORANGE_GLOW: 'rgba(255, 107, 0, 0.4)',
+
+// Service Colors (Bold Vibrant Gradients)
+FOOD_GRADIENT: ['#FF6B00', '#FF8533'],      // Orange (warm food)
+GROCERY_GRADIENT: ['#00D084', '#00E69B'],   // Green (fresh)
+ERRAND_GRADIENT: ['#0066FF', '#3385FF'],    // Blue (reliable)
+LOGISTICS_GRADIENT: ['#FFB800', '#FFC933'], // Yellow (fast)
+PHARMACY_GRADIENT: ['#00B8A9', '#00D4C5'],  // Teal (medical)
+MARKET_GRADIENT: ['#DC3545', '#E85563'],    // Red (vibrant)
 
 // Backgrounds (Pure Black Base)
 BG_BLACK: '#000000',               // Main background
@@ -45,7 +55,7 @@ BG_ELEVATED: '#151515',           // Elevated elements
 TEXT_WHITE: '#FFFFFF',
 TEXT_GRAY: '#888888',
 TEXT_DARK_GRAY: '#666666',
-````
+```
 
 ### TYPOGRAPHY RULES
 
@@ -111,7 +121,7 @@ RADIUS = {
   xl: 24,
   xxl: 28,
   xxxl: 32,
-  round: 1000, // Pills and circles
+  round: 1000,          // Pills and circles
 };
 
 // Default: 28px for most cards
@@ -131,9 +141,9 @@ SHADOW_DEFAULT = {
   elevation: 8,
 };
 
-// Neon glow (for primary elements)
-GLOW_NEON = {
-  shadowColor: '#BFFF00',
+// Fidelia glow (for primary elements)
+GLOW_FIDELIA = {
+  shadowColor: '#0066FF',
   shadowOffset: { width: 0, height: 0 },
   shadowOpacity: 0.6,
   shadowRadius: 20,
@@ -156,14 +166,19 @@ Add a View with:
 ### 1. SCREEN CONTAINER (Always start with this)
 
 ```jsx
-<ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-  <View style={styles.container}>{/* Your content here */}</View>
-</ScrollView>;
+<ScrollView 
+  style={styles.scrollView}
+  showsVerticalScrollIndicator={false}
+>
+  <View style={styles.container}>
+    {/* Your content here */}
+  </View>
+</ScrollView>
 
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
   },
   container: {
     paddingHorizontal: 20,
@@ -182,15 +197,15 @@ const styles = StyleSheet.create({
   </View>
   <TouchableOpacity style={styles.seeAllButton}>
     <Text style={styles.seeAllText}>SEE ALL</Text>
-    <MaterialCommunityIcons name="chevron-right" size={20} color="#BFFF00" />
+    <MaterialCommunityIcons name="chevron-right" size={20} color="#0066FF" />
   </TouchableOpacity>
-</View>;
+</View>
 
 const styles = StyleSheet.create({
   sectionHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 20,
   },
   headerLeft: {
@@ -198,26 +213,26 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: "800",
-    color: "#FFFFFF",
+    fontWeight: '800',
+    color: '#FFFFFF',
     letterSpacing: 0.8,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     marginBottom: 4,
   },
   sectionSubtitle: {
     fontSize: 14,
-    fontWeight: "500",
-    color: "#888888",
+    fontWeight: '500',
+    color: '#888888',
   },
   seeAllButton: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 4,
   },
   seeAllText: {
     fontSize: 13,
-    fontWeight: "700",
-    color: "#BFFF00",
+    fontWeight: '700',
+    color: '#0066FF',
     letterSpacing: 0.5,
   },
 });
@@ -226,25 +241,27 @@ const styles = StyleSheet.create({
 ### 3. CARD CONTAINER (Wrap content in this)
 
 ```jsx
-<View style={styles.card}>{/* Card content */}</View>;
+<View style={styles.card}>
+  {/* Card content */}
+</View>
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#0A0A0A",
+    backgroundColor: '#0A0A0A',
     borderRadius: 28,
     padding: 20,
     marginBottom: 16,
-
+    
     // Glow effect
-    shadowColor: "#BFFF00",
+    shadowColor: '#0066FF',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.2,
     shadowRadius: 16,
     elevation: 8,
-
+    
     // Subtle border
     borderWidth: 1,
-    borderColor: "rgba(191, 255, 0, 0.1)",
+    borderColor: 'rgba(0, 102, 255, 0.1)',
   },
 });
 ```
@@ -253,7 +270,7 @@ const styles = StyleSheet.create({
 
 ```jsx
 <LinearGradient
-  colors={["#BFFF00", "#7FFF00"]}
+  colors={['#0066FF', '#0052CC']}
   start={{ x: 0, y: 0 }}
   end={{ x: 1, y: 0 }}
   style={styles.gradientCard}
@@ -261,58 +278,58 @@ const styles = StyleSheet.create({
   {/* Decorative circles */}
   <View style={styles.decorativeCircle1} />
   <View style={styles.decorativeCircle2} />
-
+  
   {/* Content */}
   <Text style={styles.cardTitle}>TITLE</Text>
   <Text style={styles.cardValue}>VALUE</Text>
-</LinearGradient>;
+</LinearGradient>
 
 const styles = StyleSheet.create({
   gradientCard: {
     borderRadius: 32,
     padding: 28,
     marginBottom: 24,
-    overflow: "hidden",
-    position: "relative",
-
+    overflow: 'hidden',
+    position: 'relative',
+    
     // Extreme glow
-    shadowColor: "#BFFF00",
+    shadowColor: '#0066FF',
     shadowOffset: { width: 0, height: 16 },
     shadowOpacity: 0.5,
     shadowRadius: 32,
     elevation: 16,
   },
   decorativeCircle1: {
-    position: "absolute",
+    position: 'absolute',
     top: -40,
     right: -40,
     width: 160,
     height: 160,
     borderRadius: 80,
-    backgroundColor: "rgba(0, 0, 0, 0.1)",
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
   },
   decorativeCircle2: {
-    position: "absolute",
+    position: 'absolute',
     bottom: -30,
     left: -30,
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: "rgba(0, 0, 0, 0.08)",
+    backgroundColor: 'rgba(0, 0, 0, 0.08)',
   },
   cardTitle: {
     fontSize: 16,
-    fontWeight: "700",
-    color: "#000000",
+    fontWeight: '700',
+    color: '#000000',
     letterSpacing: 1,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     marginBottom: 8,
   },
   cardValue: {
     fontSize: 48,
-    fontWeight: "900",
-    color: "#000000",
-    fontFamily: "ClashDisplay",
+    fontWeight: '900',
+    color: '#000000',
+    fontFamily: 'ClashDisplay',
     letterSpacing: -1,
   },
 });
@@ -321,13 +338,13 @@ const styles = StyleSheet.create({
 ### 5. PRIMARY BUTTON (Power Button)
 
 ```jsx
-<TouchableOpacity
+<TouchableOpacity 
   style={styles.buttonWrapper}
   onPress={handlePress}
   activeOpacity={0.9}
 >
   <LinearGradient
-    colors={["#BFFF00", "#7FFF00"]}
+    colors={['#0066FF', '#0052CC']}
     start={{ x: 0, y: 0 }}
     end={{ x: 1, y: 0 }}
     style={styles.button}
@@ -336,31 +353,31 @@ const styles = StyleSheet.create({
     <Text style={styles.buttonText}>BUTTON TEXT</Text>
     <MaterialCommunityIcons name="arrow-right" size={20} color="#000000" />
   </LinearGradient>
-
+  
   {/* 3D shadow layer */}
   <View style={styles.buttonShadow} />
-</TouchableOpacity>;
+</TouchableOpacity>
 
 const styles = StyleSheet.create({
   buttonWrapper: {
-    position: "relative",
+    position: 'relative',
     marginVertical: 8,
   },
   button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 18,
     paddingHorizontal: 32,
     borderRadius: 1000,
     gap: 8,
-
+    
     // Border
     borderWidth: 2,
-    borderColor: "rgba(0, 0, 0, 0.1)",
-
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+    
     // Glow
-    shadowColor: "#BFFF00",
+    shadowColor: '#0066FF',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.6,
     shadowRadius: 20,
@@ -368,18 +385,18 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: "900",
-    color: "#000000",
+    fontWeight: '900',
+    color: '#000000',
     letterSpacing: 1.5,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
   buttonShadow: {
-    position: "absolute",
+    position: 'absolute',
     bottom: -6,
     left: 6,
     right: 6,
-    height: "100%",
-    backgroundColor: "#7FFF00",
+    height: '100%',
+    backgroundColor: '#0052CC',
     borderRadius: 1000,
     zIndex: -1,
     opacity: 0.5,
@@ -391,29 +408,29 @@ const styles = StyleSheet.create({
 
 ```jsx
 <TouchableOpacity style={styles.ghostButton}>
-  <MaterialCommunityIcons name="icon-name" size={20} color="#BFFF00" />
+  <MaterialCommunityIcons name="icon-name" size={20} color="#0066FF" />
   <Text style={styles.ghostButtonText}>BUTTON TEXT</Text>
-</TouchableOpacity>;
+</TouchableOpacity>
 
 const styles = StyleSheet.create({
   ghostButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 16,
     paddingHorizontal: 28,
     borderRadius: 1000,
     gap: 8,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: "#BFFF00",
+    borderColor: '#0066FF',
   },
   ghostButtonText: {
     fontSize: 15,
-    fontWeight: "800",
-    color: "#BFFF00",
+    fontWeight: '800',
+    color: '#0066FF',
     letterSpacing: 1,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
 });
 ```
@@ -424,13 +441,13 @@ const styles = StyleSheet.create({
 <View style={styles.badge}>
   <MaterialCommunityIcons name="lightning-bolt" size={12} color="#000000" />
   <Text style={styles.badgeText}>BADGE TEXT</Text>
-</View>;
+</View>
 
 const styles = StyleSheet.create({
   badge: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#BFFF00",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#0066FF',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 1000,
@@ -438,10 +455,10 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     fontSize: 11,
-    fontWeight: "800",
-    color: "#000000",
+    fontWeight: '800',
+    color: '#000000',
     letterSpacing: 1,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
 });
 ```
@@ -451,32 +468,35 @@ const styles = StyleSheet.create({
 ```jsx
 <TouchableOpacity style={styles.listItem}>
   {/* Icon container with gradient */}
-  <LinearGradient colors={["#FF0080", "#FF4D00"]} style={styles.listIcon}>
+  <LinearGradient
+    colors={['#FF0080', '#FF4D00']}
+    style={styles.listIcon}
+  >
     <MaterialCommunityIcons name="icon-name" size={24} color="#000000" />
   </LinearGradient>
-
+  
   {/* Content */}
   <View style={styles.listContent}>
     <Text style={styles.listTitle}>Item Title</Text>
     <Text style={styles.listSubtitle}>Subtitle text</Text>
   </View>
-
+  
   {/* Arrow */}
   <MaterialCommunityIcons name="chevron-right" size={24} color="#666666" />
-</TouchableOpacity>;
+</TouchableOpacity>
 
 const styles = StyleSheet.create({
   listItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#0A0A0A",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#0A0A0A',
     padding: 16,
     borderRadius: 20,
     marginBottom: 12,
     gap: 16,
-
+    
     // Subtle shadow
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 8,
@@ -486,22 +506,22 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 16,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   listContent: {
     flex: 1,
   },
   listTitle: {
     fontSize: 16,
-    fontWeight: "700",
-    color: "#FFFFFF",
+    fontWeight: '700',
+    color: '#FFFFFF',
     marginBottom: 4,
   },
   listSubtitle: {
     fontSize: 14,
-    fontWeight: "500",
-    color: "#888888",
+    fontWeight: '500',
+    color: '#888888',
   },
 });
 ```
@@ -511,7 +531,6 @@ const styles = StyleSheet.create({
 ## 🎯 REDESIGN RULES
 
 ### ❌ REMOVE THESE (Old Style):
-
 - All `borderWidth` and `borderColor` (except for neon borders)
 - Background colors like #F9FAFB, #FFFFFF (use black)
 - Font weights like 'bold', 'normal' (use numbers)
@@ -520,9 +539,8 @@ const styles = StyleSheet.create({
 - Subtle colors
 
 ### ✅ ADD THESE (New Style):
-
 - Pure black backgrounds (#000000)
-- Neon lime gradients (#BFFF00)
+- #0066FF Fidelia Blue gradients (#0066FF)
 - Border radius 28px+ for cards
 - Glow shadows everywhere
 - 3D depth layers
@@ -532,10 +550,9 @@ const styles = StyleSheet.create({
 - Emojis where appropriate
 
 ### 🔧 TRANSFORMATION CHECKLIST:
-
 1. Change ScrollView background to #000000
 2. Change all cards to #0A0A0A with borderRadius 28
-3. Add glow shadows (shadowColor: '#BFFF00')
+3. Add glow shadows (shadowColor: '#0066FF')
 4. Change primary buttons to gradient with neon glow
 5. Update all text colors to #FFFFFF or #888888
 6. Add letter spacing to all headings
@@ -557,7 +574,7 @@ const styles = StyleSheet.create({
 5. **UPPERCASE POWER**: Important text = ALL CAPS
 6. **LETTER SPACING**: Add to ALL headings and buttons
 7. **3D DEPTH**: Add shadow layers to create depth
-8. **NEON IDENTITY**: Neon lime (#BFFF00) is YOUR signature
+8. **NEON IDENTITY**: #0066FF Fidelia Blue (#0066FF) is YOUR signature
 9. **EMOJI FRIENDLY**: Add emojis naturally (🔥⚡💫✨)
 10. **ENERGETIC**: Make it feel ALIVE and EXCITING
 
@@ -586,9 +603,8 @@ const styles = StyleSheet.create({
 ## ✅ FINAL CHECK
 
 Before returning, verify:
-
 - [ ] Background is pure black (#000000)
-- [ ] Primary color is neon lime (#BFFF00)
+- [ ] Primary color is Fidelia blue (#0066FF)
 - [ ] Cards have glow shadows
 - [ ] Border radius is 28px+
 - [ ] All text is white or gray
@@ -601,8 +617,7 @@ Before returning, verify:
 ---
 
 **NOW REDESIGN THIS SCREEN TO LOOK EXTRAORDINARY** 🔥
-
-````
+```
 
 ---
 
@@ -612,57 +627,59 @@ Before returning, verify:
 ```jsx
 <View style={{ padding: 10, backgroundColor: '#fff' }}>
   <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Title</Text>
-  <TouchableOpacity
+  <TouchableOpacity 
     style={{ backgroundColor: '#4CAF50', padding: 10, borderRadius: 5 }}
   >
     <Text style={{ color: 'white' }}>Button</Text>
   </TouchableOpacity>
 </View>
-````
+```
 
 ### After (Glow Commerce Style):
-
 ```jsx
 <View style={styles.container}>
   {/* Section Header */}
   <Text style={styles.title}>TITLE</Text>
-
+  
   {/* Power Button */}
   <TouchableOpacity style={styles.buttonWrapper}>
-    <LinearGradient colors={["#BFFF00", "#7FFF00"]} style={styles.button}>
+    <LinearGradient
+      colors={['#0066FF', '#0052CC']}
+      style={styles.button}
+    >
       <MaterialCommunityIcons name="lightning-bolt" size={20} color="#000" />
       <Text style={styles.buttonText}>BUTTON</Text>
       <MaterialCommunityIcons name="arrow-right" size={20} color="#000" />
     </LinearGradient>
     <View style={styles.buttonShadow} />
   </TouchableOpacity>
-</View>;
+</View>
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
   },
   title: {
     fontSize: 28,
-    fontWeight: "800",
-    color: "#FFFFFF",
+    fontWeight: '800',
+    color: '#FFFFFF',
     letterSpacing: 0.8,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     marginBottom: 20,
   },
   buttonWrapper: {
-    position: "relative",
+    position: 'relative',
   },
   button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 18,
     paddingHorizontal: 32,
     borderRadius: 1000,
     gap: 8,
-    shadowColor: "#BFFF00",
+    shadowColor: '#0066FF',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.6,
     shadowRadius: 20,
@@ -670,18 +687,18 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: "900",
-    color: "#000000",
+    fontWeight: '900',
+    color: '#000000',
     letterSpacing: 1.5,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
   },
   buttonShadow: {
-    position: "absolute",
+    position: 'absolute',
     bottom: -6,
     left: 6,
     right: 6,
-    height: "100%",
-    backgroundColor: "#7FFF00",
+    height: '100%',
+    backgroundColor: '#0052CC',
     borderRadius: 1000,
     zIndex: -1,
     opacity: 0.5,
@@ -699,4 +716,4 @@ The AI will transform your screen into the most modern delivery app UI in Nigeri
 
 ---
 
-_Version 1.0 - Glow Commerce Redesign Template_
+*Version 1.0 - Glow Commerce Redesign Template*
